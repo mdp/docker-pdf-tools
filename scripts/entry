@@ -1,0 +1,8 @@
+#!/bin/sh
+
+usage ()
+{
+  cat /README.md | sed -n -e '/Usage/,$p'
+}
+
+usage

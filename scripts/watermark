@@ -1,0 +1,14 @@
+#!/bin/sh
+
+echo "Watermarking $1 on $2"
+convert -background transparent \
+  -fill rgba\(0,0,0,0.12\) -rotate 45 \
+  -pointsize 96 label:"$1" \
+  -trim +repage watermark.pdf
+
+echo "Saving to $3"
+pdftk $2 multistamp watermark.pdf output $3
+
+rm watermark.pdf
+
+
